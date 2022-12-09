@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     
                     {{-- 以下にtailwind.css --}}
-                    <form action="" method="">
+                    <form action="{{route('contacts.update', [$contact->id])}}" method="post">
                       @csrf
                     <section class="text-gray-600 body-font relative">
                         <div class="container px-5 mx-auto">
@@ -58,7 +58,7 @@
                                 <div class="relative">
                                   <label for="age" class="leading-7 text-sm text-gray-600">年齢</label>
                                   <select name="age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                    <option value="">{{$contact->age}}</option>
+                                    <option value="{{$contact->age}}">{{$contact->age}}</option>
                                   @for ($age=1; $age<=80; $age++)
                                   <option value="{{$age}}">{{$age}}</option>
                                   @endfor
