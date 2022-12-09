@@ -65,6 +65,15 @@ class ContactFormController extends Controller
     public function show($id)
     {
         //
+        $contact = ContactForm::find($id);
+
+        if($contact->gender == 0 ){
+            $gender = '男性';
+        }else {
+            $gender = '女性';
+        }
+
+        return view('contacts.show', compact('contact', 'gender'));
     }
 
     /**
