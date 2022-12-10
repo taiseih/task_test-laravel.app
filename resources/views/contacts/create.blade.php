@@ -11,9 +11,11 @@
                 <div class="p-6 text-gray-900">
                     
                     {{-- 以下にtailwind.css --}}
-                    <form action="{{ route('contacts.store') }}" method="post">
-                      @csrf
+                    
+                    <x-input-error :messages="$errors->all()" class="mt-2" />
                     <section class="text-gray-600 body-font relative">
+                      <form action="{{ route('contacts.store') }}" method="post">
+                        @csrf
                         <div class="container px-5 mx-auto">
                           <div class="lg:w-1/2 md:w-2/3 mx-auto">
                             <div class="flex flex-wrap -m-2">
@@ -85,8 +87,9 @@
                             </div>
                           </div>
                         </div>
+                      </form>
                       </section>
-                    </form>
+                    
                       {{-- end tailwind --}}
 
                 </div>
