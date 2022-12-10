@@ -80,6 +80,14 @@
                               </div>
                             </form>
 
+                            {{-- ただ消すだけならこの記述 --}}
+                            {{-- <form id="delete_{{$contact->id}}" class="mt-40" action="{{ route('contacts.destroy',  ['id' => $contact->id]) }}" method="post">
+                              @csrf
+                              
+                                <button>削除</button>
+                              
+                            </form> --}}
+
                             </div>
                           </div>
                         </div>
