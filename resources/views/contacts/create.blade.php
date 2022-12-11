@@ -12,8 +12,8 @@
                     
                     {{-- 以下にtailwind.css --}}
                     
-                    <x-input-error :messages="$errors->all()" class="mt-2" />
-                      
+                    <x-input-error :messages="$errors->all()" class="mt-2" />{{-- バリデーション --}}
+
                     <section class="text-gray-600 body-font relative">
                       <form action="{{ route('contacts.store') }}" method="post">
                         @csrf
