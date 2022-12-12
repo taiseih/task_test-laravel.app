@@ -14,11 +14,17 @@ class ContactFormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $search = $request->input('search');
+
+        $query = ContactForm::search($search);
+
+        $contacts = $query->select('id', 'name', 'title', 'created_at')->get();
+
         $contacts = ContactForm::select('id', 'name', 'title', 'created_at')->get();
-        return view('contacts.index', compact('contacts')); //フォルダ名.ファイル名
+        return view('contacts.index', compact('contacts', 'search')); //フォルダ名.ファイル名
     }
 
     /**
@@ -41,7 +47,7 @@ class ContactFormController extends Controller
     public function store(StoreContactRequest $request)
     {
         //
-        // dd($request, $request->name);
+        
 
         ContactForm::create([
             'name' => $request->name,
@@ -53,6 +59,8 @@ class ContactFormController extends Controller
             'contact' => $request->contact,
             
         ]);
+
+
 
         return to_route('contacts.index');
 
