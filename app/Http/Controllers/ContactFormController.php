@@ -17,15 +17,16 @@ class ContactFormController extends Controller
     public function index(Request $request)
     {
         //
-        $search = $request->input('search');
 
+        // $contacts = ContactForm::select('id', 'name', 'title', 'created_at')->get(); 全件取得
+
+        // $contacts = ContactForm::select('id', 'name', 'title', 'created_at')->paginate(20); 20件ごとに取得
+
+        //検索
+        $search = $request->search;
         $query = ContactForm::search($search);
+        $contacts = $query->select('id', 'name', 'title', 'created_at')->paginate(20);
 
-        $contacts = $query->select('id', 'name', 'title', 'created_at')->get();
-
-        // $contacts = ContactForm::select('id', 'name', 'title', 'created_at')->get();
-
-        $contacts = ContactForm::select('id', 'name', 'title', 'created_at')->paginate(20);
 
         return view('contacts.index', compact('contacts')); //フォルダ名.ファイル名
     }
