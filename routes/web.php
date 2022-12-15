@@ -26,13 +26,14 @@ use App\Http\Controllers\ContactFormController;
 
 // ルートのグループ化 
 // prefixは先頭に指定した文字列をつける事ができる
+//認証しないとcontactsに入れないようにする
 // middlewareは認証->
 // controllerはcontrollerの指定->
 // nameはルートの名前->
 // groupはグループ化->
 
 Route::prefix('contacts')
-->middleware(['auth']) //認証しないとcontactsに入れないようにする
+->middleware(['auth']) 
 ->controller(ContactFormController::class)
 ->name('contacts.')
 ->group(function(){
