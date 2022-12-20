@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('contacts.index')" :active="request()->routeIs('contacts.index')">
-                        問い合わせ一覧
+                        task_test
                     </x-nav-link>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contacts.index')" :active="request()->routeIs('contacts.index')">
-                問い合わせ一覧
+                task_test
             </x-responsive-nav-link>
         </div>
 

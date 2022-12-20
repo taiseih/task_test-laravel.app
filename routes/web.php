@@ -26,8 +26,7 @@ use App\Http\Controllers\ContactFormController;
 
 // ルートのグループ化 
 // prefixは先頭に指定した文字列をつける事ができる
-//認証しないとcontactsに入れないようにする
-// middlewareは認証->
+// middleware[auth]は認証->
 // controllerはcontrollerの指定->
 // nameはルートの名前->
 // groupはグループ化->
@@ -66,6 +65,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('tests/test', [TestController::class, 'index']);
+// Route::get('tests/test', [TestController::class, 'index']);
 
 require __DIR__.'/auth.php';
