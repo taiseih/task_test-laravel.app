@@ -12,7 +12,7 @@
                     
                     {{-- 以下にtailwind.css --}}
                     
-                    <x-input-error :messages="$errors->all()" class="mt-2" />{{-- バリデーション --}}
+                    <x-input-error :messages="$errors->all()" class="mt-2" />{{-- バリデーションエラー時のエラー文表示 --}}
 
                     <section class="text-gray-600 body-font relative">
                       <form action="{{ route('contacts.store') }}" method="post">
